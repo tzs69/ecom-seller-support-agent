@@ -1,0 +1,4 @@
+[
+  {"resolution_id":"INV-7001","order_id":"SG-1044","seller_id":"SELLER-001","type":"carrier_investigation_request","status":"open","created_at":"2026-10-28T09:00:00+08:00"},
+  {"resolution_id":"REF-7002","order_id":"SG-1046","seller_id":"SELLER-001","type":"refund","status":"completed","amount_cents":3900,"created_at":"2026-10-28T10:30:00+08:00"}
+]

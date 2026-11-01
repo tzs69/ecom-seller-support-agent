@@ -1,0 +1,10 @@
+[
+  {"tracking_id":"TRK-1042","status":"delivered","delivered_at":"2026-10-28T14:10:00+08:00","delivery_location_token":"LOC-A","photo_reference":null,"recipient_signature":null,"carrier_note":"Marked delivered by driver."},
+  {"tracking_id":"TRK-1043","status":"delivered","delivered_at":"2026-10-28T15:20:00+08:00","delivery_location_token":"LOC-X","photo_reference":"PHOTO-DEMO-1043","recipient_signature":null,"carrier_note":"Left at delivery location."},
+  {"tracking_id":"TRK-1044","status":"delivered","delivered_at":"2026-10-27T11:00:00+08:00","delivery_location_token":"LOC-C","photo_reference":null,"recipient_signature":null,"carrier_note":"Delivery scan recorded."},
+  {"tracking_id":"TRK-1045","status":"delivered","delivered_at":"2026-10-28T10:00:00+08:00","delivery_location_token":"LOC-D","photo_reference":"PHOTO-DEMO-1045","recipient_signature":"SIGNATURE-DEMO-1045","carrier_note":"Proof references available; contents not verified."},
+  {"tracking_id":"TRK-1046","status":"delivered","delivered_at":"2026-10-26T17:00:00+08:00","delivery_location_token":"LOC-E","photo_reference":null,"recipient_signature":null,"carrier_note":"Delivery scan recorded."},
+  {"tracking_id":"TRK-1047","status":"in_transit","delivered_at":null,"delivery_location_token":null,"photo_reference":null,"recipient_signature":null,"carrier_note":"At sorting facility."},
+  {"tracking_id":"TRK-2042","status":"delivered","delivered_at":"2026-10-28T13:00:00+08:00","delivery_location_token":"LOC-PRIVATE","photo_reference":null,"recipient_signature":null,"carrier_note":"Private seller record."},
+  {"tracking_id":"TRK-1048","status":"delivered","delivered_at":"2026-10-28T16:00:00+08:00","delivery_location_token":"LOC-G","photo_reference":null,"recipient_signature":null,"carrier_note":"Delivery scan recorded."}
+]
