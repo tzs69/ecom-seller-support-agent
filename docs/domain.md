@@ -69,14 +69,15 @@ stop condition.
 | 1 | No order ID | `needs_order_id` | None | ACCESS-01 |
 | 2 | Order not found or not owned by authenticated seller | `order_unavailable` | None | ACCESS-02 |
 | 3 | No applicable market/date policy | `unsupported_policy_scope` | None | SCOPE-01 |
-| 4 | Authorised order is not marked delivered | `outside_workflow` | None | SCOPE-02 |
-| 5 | Resolution history unavailable | `insufficient_evidence` | None | EVIDENCE-04 |
-| 6 | Completed refund or open carrier investigation request already exists | `existing_resolution` | None | HISTORY-01 |
-| 7 | A closed carrier investigation request exists without a completed refund | `human_review` | None | HISTORY-01 |
-| 8 | Tracking unavailable or contradicts order delivery status | `insufficient_evidence` | None | EVIDENCE-04 |
-| 9 | Structured delivery location differs from destination token | `human_review` | None | EVIDENCE-02 |
-| 10 | Required delivery proof is missing | `propose_carrier_investigation` | `submit_carrier_investigation_request` | EVIDENCE-01 |
-| 11 | Proof is present and consistent, but buyer disputes receipt | `human_review` | None | EVIDENCE-03 |
+| 4 | Applicable policy corpus is missing a required document or rule | `insufficient_evidence` | None | EVIDENCE-04 |
+| 5 | Authorised order is not marked delivered | `outside_workflow` | None | SCOPE-02 |
+| 6 | Order or resolution-history lookup unavailable | `insufficient_evidence` | None | EVIDENCE-04 |
+| 7 | Completed refund or open carrier investigation request already exists | `existing_resolution` | None | HISTORY-01 |
+| 8 | A closed carrier investigation request exists without a completed refund | `human_review` | None | HISTORY-01 |
+| 9 | Tracking unavailable or contradicts order delivery status | `insufficient_evidence` | None | EVIDENCE-04 |
+| 10 | Structured delivery location differs from destination token | `human_review` | None | EVIDENCE-02 |
+| 11 | Required delivery proof is missing | `propose_carrier_investigation` | `submit_carrier_investigation_request` | EVIDENCE-01 |
+| 12 | Proof is present and consistent, but buyer disputes receipt | `human_review` | None | EVIDENCE-03 |
 
 For existing history, a completed refund takes display precedence over an open
 carrier investigation request if both exist. An existing resolution means show status, not assert
@@ -101,4 +102,3 @@ creating a real escalation ticket is outside this MVP.
 - [Rule catalog](rule-catalog.md): source categories for all rule IDs in the decision table.
 - [Backend controls](backend-controls.md): enforce access, eligibility, active-case reuse, and safe submission.
 - [Evaluation guide](../evals/README.md): fixture conventions, overrides, and grading.
-- [Handoff](handoff.md): current progress, pending cleanup, and the next milestone.

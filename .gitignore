@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local configuration and generated application state
+.env.*
+!.env.example
+/runtime/
+/logs/
+/evals/results/

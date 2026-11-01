@@ -1,8 +1,10 @@
 # Backend controls
 
-Planned Python/backend responsibilities. No control or tool is implemented yet.
-These requirements are not part of the business-policy retrieval corpus. Enforce
-them even when the model ignores its instructions or retrieval fails.
+Python/backend requirements. Read-only fixture ownership/scope checks and
+recommendation eligibility validation are implemented. Approval, active-case
+reuse, database transactions, and write idempotency remain planned. See
+[the first-flow guide](first-flow.md). These requirements are not part of the
+business-policy retrieval corpus; enforcement must not depend on model obedience.
 
 ## ACCESS-02: Verify ownership
 

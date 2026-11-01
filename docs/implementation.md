@@ -1,8 +1,10 @@
 # Implementation design
 
-Planned technical behaviour; no agent, tools, runtime databases, or UI are
-implemented yet. Business terminology and decision precedence live in
-[the domain model](domain.md).
+Target technical behaviour. The first read-only CLI graph, fixture tools, lexical
+policy retrieval, and deterministic proposal validation are implemented. Approval,
+business writes, case persistence/reuse, audit storage, and checkpoint resumption
+remain planned. See [the first-flow guide](first-flow.md) for current behaviour.
+Business terminology and decision precedence live in [the domain model](domain.md).
 
 ## Responsibility boundaries
 
@@ -17,9 +19,11 @@ These responsibilities are now documented separately:
 - [Backend controls](backend-controls.md): code-enforced requirements, not retrieval sources.
 - [Rule catalog](rule-catalog.md): primary source and category for all 13 rule IDs.
 
-The split is documentation only; runtime loading and enforcement remain to be
-implemented. Application controls must work even when retrieval fails or a model
-ignores instructions. The rule catalog and handoff are not model context.
+Runtime loading now separates system instructions from retrieved business rules;
+read-only access, scope, and recommendation guards are enforced in Python.
+Execution controls below remain a specification until the write milestone.
+Application controls must work even when retrieval fails or a model ignores
+instructions. The rule catalog and handoff are not model context.
 
 ## Access enforcement
 
@@ -30,7 +34,7 @@ response. Private fixtures may include other sellers' records to exercise this.
 
 ## Recommendation shape
 
-The later agent should produce a structured object with:
+The application returns a structured object with:
 
 | Field | Meaning |
 | --- | --- |
@@ -44,6 +48,12 @@ The later agent should produce a structured object with:
 | `proposed_action` | Null or a structured `submit_carrier_investigation_request` proposal |
 | `approval_required` | True only when there is a proposed executable action |
 | `buyer_reply_draft` | Optional unsent draft; no unsupported promises |
+
+This table describes the final application output. The model-facing assessment
+contains only `decision`, `evidence_refs`, and `policy_rule_ids`. Python validates
+those fields and derives the action/approval requirement when assembling the
+response. The first invalid assessment gets one correction opportunity; a second
+rejection returns an error. Eligibility checks are not weakened by correction.
 
 A proposal includes order ID, reason, evidence references, policy version, and a
 stable proposal ID. Approval is bound to that proposal, not an arbitrary chat

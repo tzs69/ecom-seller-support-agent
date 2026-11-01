@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seller-support-agent"
+version = "0.1.0"
+description = "Read-only LangGraph assessment of fictional delivery disputes"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph>=1,<2",
+    "langchain-aws>=1,<2",
+    "boto3>=1.40,<2",
+    "pydantic>=2.12,<3",
+    "python-dotenv>=1,<2",
+    "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9,<10", "ruff"]
+
+[project.scripts]
+seller-support = "seller_support.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
